@@ -22,9 +22,7 @@ let playerChoice = prompt('Please enter your choice').toLowerCase();
 //Make function to get the winner
 function playRound(player, computer) {
   if (player == computer) return 'Draw!';
-  if (player == "rock" ) return (computer == "paper") ? "Player Win" : "Computer Win";
+  if (player == 'rock' ) return (computer == 'scissors') ? 'Player Win' : 'Computer Win!';
   if (player == 'paper') return (computer == 'rock') ? 'Player Win!' : 'Computer Win!';
   if (player == 'scissors') return (computer == 'paper') ? 'Player Win!' : 'Computer Win!';
   }
-
-console.log(playRound(playerChoice, computerChoice));
