@@ -18,3 +18,33 @@ const computerChoice = getComputerChoice();
 //Make input from user
 let playerChoice = prompt('Please enter your choice').toLowerCase();
 
+//Make function to get the winner
+function playRound(computerChoice, playerChoice) {
+  if (computerChoice == "rock") {
+    if (playerChoice == 'rock') {
+      return 'draw';
+    } else if (playerChoice == 'paper') {
+      return 'Player Win';
+    } else {
+      'Computer Win';
+    }
+  }
+  if (computerChoice == "paper") {
+    if (playerChoice == 'paper') {
+      return 'draw';
+    } else if (playerChoice == 'scissors') {
+      return 'Player Win';
+    } else {
+      'Computer Win';
+    }
+  }
+  if (computerChoice == "scissors") {
+    if (playerChoice == 'scissors') {
+      return 'draw';
+    } else if (playerChoice == 'rock') {
+      return 'Player Win';
+    } else {
+      'Computer Win';
+    }
+  }
+}
