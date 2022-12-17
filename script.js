@@ -15,3 +15,6 @@ function getComputerChoice() {
 }
 
 const computerChoice = getComputerChoice();
+//Make input from user
+let playerChoice = prompt('Please enter your choice').toLowerCase();
+
