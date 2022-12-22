@@ -27,18 +27,5 @@ function playRound(player, computer) {
   if (player == 'scissors') return (computer == 'paper') ? 'Player Win!' : 'Computer Win!';
   }
 
-    
 
-let playerScore = 0;
-let computerScore = 0;
-
-for (let i = 0; i < 5; i++) {
-  if (playRound(playerChoice, computerChoice) == 'Player Win!') {
-    playerScore += 1;
-  } else if (playRound(playerChoice, computerChoice) == 'Computer Win!') {
-    computerScore += 1;
-  } else if (playRound(playerChoice, computerChoice) == 'Draw!') {
-    playerScore += 0;
-    computerScore += 0;
-  }
-}
+//Don't know how to make score tracker
