@@ -14,45 +14,70 @@ function getComputerChoice() {
   }
 }
 
-
-
-
-//Make function to get the winner
-function playRound(player, computer) {
-  if (player == computer) return 'Draw!';
-  if (player == 'rock' ) return (computer == 'scissors') ? 'Player Win!' : 'Computer Win!';
-  if (player == 'paper') return (computer == 'rock') ? 'Player Win!' : 'Computer Win!';
-  if (player == 'scissors') return (computer == 'paper') ? 'Player Win!' : 'Computer Win!';
-  }
-
 //Make variable to save the score
 let playerScore = 0;
 let computerScore = 0;
 
-//Make score tracker with 5 rounds game
-for ( let i = 0; i < 5; i++ ) {
-  const computerChoice = getComputerChoice();
-  //Make input from user
-  let playerChoice = prompt('Pilih antara rock, paper, scissors').toLowerCase();
-  const result = playRound(playerChoice, computerChoice);
-  if (result === 'Player Win!') {
-    playerScore++;
-  } else if (result === 'computer Win!') {
-    computerScore ++;
+// Make function to get the winner
+function playRound(player, computer) {
+  if (player == computer) {
+    document.getElementById('result').innerHTML = 'Draw!';
+    return 'Draw!';
   }
-
-  //Show the winner of this round
-  console.log(`Pemenang ronde ${i + 1} adalah ${result}`);
+  if (player == 'rock') {
+    if (computer == 'scissors') {
+      document.getElementById('result').innerHTML = 'Player Win!';
+      playerScore++;
+      document.getElementById('player-score').innerHTML = `Player Score : ${playerScore}`;
+    } else {
+      document.getElementById('result').innerHTML = 'Computer Win!';
+      computerScore++;
+      document.getElementById('computer-score').innerHTML = `Computer Score : ${computerScore}`;
+    }
+  } else if (player == 'paper') {
+    if (computer == 'rock') {
+      document.getElementById('result').innerHTML = 'Player Win!';
+      playerScore++;
+      document.getElementById('player-score').innerHTML = `Player Score : ${playerScore}`;
+    } else {
+      document.getElementById('result').innerHTML = 'Computer Win!';
+      computerScore++;
+      document.getElementById('computer-score').innerHTML = `Computer Score : ${computerScore}`;
+    }
+  } else if (player == 'scissors') {
+    if (computer == 'paper') {
+      document.getElementById('result').innerHTML = 'Player Win!';
+      playerScore++;
+      document.getElementById('player-score').innerHTML = `Player Score : ${playerScore}`;
+    } else {
+      document.getElementById('result').innerHTML = ' Computer Win!';
+      computerScore++;
+      document.getElementById('computer-score').innerHTML = `Computer Score : ${computerScore}`;
+    }
+  }
+  
+  if (playerScore >= 5) {
+    document.getElementById('winner').innerHTML = 'Playerr Win this match';
+  } else if (computerScore >= 5) {
+    document.getElementById('winner').innerHTML = 'Computer Win this match';
+}
 }
 
-//Show the final score
-console.log(`Skor akhir permainan ini adalah : Pemain = ${playerScore}, Komputer = ${computerScore}`);
+//Play the game
+document.getElementById('rock').addEventListener('click', () => {
+  playRound('rock', getComputerChoice());
+});
+document.getElementById('paper').addEventListener('click', () => {
+  playRound('paper', getComputerChoice());
+});
+document.getElementById('scissors').addEventListener('click', () => {
+  playRound('scissors', getComputerChoice());
+});
 
-//Pick the winner of the game
-if ( playerScore > computerScore ) {
-  console.log("Pemenang permainan ini adalah Player, selamat karena mengalahkan komputer");
-} else if ( playerScore < computerScore) {
-  console.log("Oh tidak, Komputer menang. Sepertinya manusia kalah sekarang");
-} else {
-  console.log("Seri!!");
+if (playerScore >= 5) {
+  document.getElementById('winner').innerHTML = 'Playerr Win this match';
+} else if (computerScore >= 5) {
+  document.getElementById('winner').innerHTML = 'Computer Win this match';
 }
+
+// console.log(playerScore);
